@@ -5,7 +5,7 @@ const Admin = require('../models/admin');
 
 
 router.get('/index', async (req,res) => {
-    let admins = await Admin.find();
+    let admins = await Admin.find({"status":true});
     if(admins < 2) return res.status(404).send("Data Not Found");
     if(admins!=null)
         res.status(200).send(admins);
